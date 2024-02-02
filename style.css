@@ -4,18 +4,22 @@ body{
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #ccf5ff;
+    background-color: #6c6c6c;
 }
 #calculator{
     
     border: solid;
     padding: 10px;
     border-radius: 9px;
-    border-color: #aaa;
-    background-color: #e2ffbd;
+    background-color: #202020;
+    border: none;
 }
 #display{
     font-size: 50px;
+    color: white;
+    padding: 5px;
+    overflow: auto;
+    width: 242px;
 }
 .row button{
     font-size: 50px;
@@ -23,6 +27,8 @@ body{
     height: 80px;
     margin: 3px 0px;
     border-radius: 9px;
+    background-color: #585858;
+    color: white;
     
 }
 #equals{

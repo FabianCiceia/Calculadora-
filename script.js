@@ -8,12 +8,15 @@ function press(tecla){
         display.innerHTML = valor;
         numero = true;
     }else{
-        valor=0;
+        valor= "";
         valor+=tecla;
         display.innerHTML = valor;
         numero = true;
         cal = false;
     }
+    
+
+
 }
 function setOP(operador){
     if(numero){
