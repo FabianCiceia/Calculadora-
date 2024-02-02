@@ -3,18 +3,25 @@ var valor = "";
 var numero = true; //evita que se pongan dos operadores al mismo tiempo ejemplo ++ -- // **
 var cal = false;  //evita el escribir numeros al resultado de una operacion
 var punto = true; //para evitar que se coloquen doble punto ejemplo: 5.2.8
+var octal = false; //para evitar que se pueda escribir numeros en octal 022 = 18
 function press(tecla){
     if(!cal){
+        if(tecla == 0 && valor.length == 0 || octal && tecla == 0 ){
+            return;
+        }
         valor+=tecla;
         display.innerHTML = valor;
         numero = true;
+        octal = false;
     }else{
-        valor= "";
-        valor+=tecla;
-        display.innerHTML = valor;
-        numero = true;
-        cal = false;
-        punto = true;
+        if(tecla != 0){
+            valor= "";
+            valor+=tecla;
+            display.innerHTML = valor;
+            numero = true;
+            cal = false;
+            octal = false;
+        }
     }
     
 
@@ -27,6 +34,7 @@ function setOP(operador){
         numero = false;
         cal = false;
         punto = true;
+        octal = true;
     }
 }
 function Punt(PUN){
@@ -50,10 +58,12 @@ function clr(){
 function calculate(){
     if(numero && !(valor == undefined) && !(valor == 0)){
         if(eval(valor) % 1){
+            
             valor = String((eval(valor)).toFixed(2));
             display.innerHTML = valor;
             punto = false;
         }else{
+            console.log(valor);
             valor = String(eval(valor));
             display.innerHTML = valor;
             punto = true;
